@@ -44,7 +44,7 @@ return require("packer").startup(function(use)
 	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
 	use({ "nvim-telescope/telescope-file-browser.nvim" })
 	use("nvim-telescope/telescope-project.nvim")
-
+	-- Terminal pluggin
 	use({
 		"akinsho/toggleterm.nvim",
 		tag = "*",
@@ -92,12 +92,23 @@ return require("packer").startup(function(use)
 
 	-- Flutter pluggins
 	-- Hop Pluggin
-	use {
-		'phaazon/hop.nvim',
-		branch = 'v2', -- optional but strongly recommended
+	use({
+		"phaazon/hop.nvim",
+		branch = "v2", -- optional but strongly recommended
 		config = function()
 			-- you can configure Hop the way you like here; see :h hop-config
-			require 'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
-		end
-	}
+			require("hop").setup({ keys = "etovxqpdygfblzhckisuran" })
+		end,
+	})
+
+	-- Indent context pluggin
+	use("lukas-reineke/indent-blankline.nvim")
+
+	-- Alpha Pluggin
+	use({
+		"goolord/alpha-nvim",
+		config = function()
+			require("alpha").setup(require("alpha.themes.dashboard").config)
+		end,
+	})
 end)
