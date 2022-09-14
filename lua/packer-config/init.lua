@@ -44,14 +44,10 @@ return require("packer").startup(function(use)
 	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
 	use({ "nvim-telescope/telescope-file-browser.nvim" })
 	use("nvim-telescope/telescope-project.nvim")
+	
 	-- Terminal pluggin
-	use({
-		"akinsho/toggleterm.nvim",
-		tag = "*",
-		config = function()
-			require("toggleterm").setup()
-		end,
-	})
+	use "akinsho/toggleterm.nvim"
+
 	use("kdheepak/lazygit.nvim")
 
 	-- Commenting plugin
@@ -61,8 +57,6 @@ return require("packer").startup(function(use)
 			require("Comment").setup()
 		end,
 	})
-
-	use("tpope/vim-sleuth") -- Auto indent detection
 
 	-- Auto pairs plugin
 	use({
@@ -104,11 +98,4 @@ return require("packer").startup(function(use)
 	-- Indent context pluggin
 	use("lukas-reineke/indent-blankline.nvim")
 
-	-- Alpha Pluggin
-	use({
-		"goolord/alpha-nvim",
-		config = function()
-			require("alpha").setup(require("alpha.themes.dashboard").config)
-		end,
-	})
 end)

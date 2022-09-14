@@ -40,3 +40,4 @@ map("n", "<Space>bw", "<Cmd>BufferOrderByWindowNumber<CR>", opts)
 -- LazyGit Mappings
 -- Hop Mappings
 map('', 'f', "<cmd>lua require'hop'.hint_words({  })<cr>", {})
+
