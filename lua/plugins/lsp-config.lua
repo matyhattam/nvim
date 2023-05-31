@@ -7,7 +7,7 @@ return {
 		"hrsh7th/cmp-nvim-lsp",
 	},
 	config = function()
-		local neodev = require("neodev").setup({})
+		require("neodev").setup({})
 		local mason = require("mason")
 		local mason_lsp_config = require("mason-lspconfig")
 		local lsp = require("lspconfig")
@@ -27,6 +27,8 @@ return {
 			"gopls",
 		}
 
+		vim.diagnostic.config({ virtual_text = false })
+
 		mason.setup()
 		mason_lsp_config.setup({ ensure_installed = servers })
 
@@ -41,12 +43,9 @@ return {
 			vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
 			vim.keymap.set("n", "gt", vim.lsp.buf.type_definition, bufopts)
 			vim.keymap.set("n", "gi", vim.lsp.buf.implementation, bufopts)
-			vim.keymap.set("n", "ge", vim.diagnostic.open_float, bufopts)
-			vim.keymap.set("n", "<leader>dj", vim.diagnostic.goto_next, bufopts)
-			vim.keymap.set("n", "<leader>dk", vim.diagnostic.goto_prev, bufopts)
+
 			vim.keymap.set("n", "<leader>dl", ":Telescope diagnostics<CR>", bufopts)
 			vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename, bufopts)
-			vim.keymap.set("n", "<leader>G", null_ls_format, bufopts)
 		end
 
 		for _, server in pairs(servers) do

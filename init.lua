@@ -11,6 +11,7 @@ opt.smartindent = true
 opt.tabstop = 2
 opt.softtabstop = 2
 
+opt.pumheight = 22
 opt.fillchars = { eob = " " }
 opt.ignorecase = true
 opt.smartcase = true
@@ -28,20 +29,19 @@ opt.termguicolors = true
 opt.timeoutlen = 400
 opt.undofile = true
 
--- interval for writing swap file to disk, also used by gitsigns
-opt.updatetime = 250
+vim.diagnostic.config({ current_line_virt = true })
 
 -- Lazy bootstrap
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- latest stable release
-    lazypath,
-  })
+	vim.fn.system({
+		"git",
+		"clone",
+		"--filter=blob:none",
+		"https://github.com/folke/lazy.nvim.git",
+		"--branch=stable", -- latest stable release
+		lazypath,
+	})
 end
 vim.opt.rtp:prepend(lazypath)
 
@@ -55,3 +55,6 @@ vim.keymap.set("n", "<up>", "<nop>", { silent = true })
 vim.keymap.set("n", "<down>", "<nop>", { silent = true })
 vim.keymap.set("n", "<left>", "<nop>", { silent = true })
 vim.keymap.set("n", "<right>", "<nop>", { silent = true })
+vim.keymap.set("n", "di", vim.diagnostic.open_float, { noremap = true, silent = true })
+vim.keymap.set("n", "dn", vim.diagnostic.goto_next, { noremap = true, silent = true })
+vim.keymap.set("n", "db", vim.diagnostic.goto_next, { noremap = true, silent = true })
