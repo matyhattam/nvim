@@ -1,8 +1,3 @@
--- return {
---   "lukas-reineke/indent-blankline.nvim",
---   opts = {
---   },
--- }
 return {
   "echasnovski/mini.indentscope",
   version = "*",

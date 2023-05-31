@@ -16,11 +16,5 @@ return {
       mode = "t",
       desc = "Toggle terminal",
     },
-    -- {
-    --   "<ESC><ESC>",
-    --   "<C-\\><C-n>",
-    --   mode = "t",
-    --   desc = "Terminal normal mode",
-    -- },
   },
 }
