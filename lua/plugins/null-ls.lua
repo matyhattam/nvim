@@ -13,6 +13,9 @@ return {
 			formatting.dart_format,
 			formatting.rustfmt,
 			formatting.gofmt,
+			formatting.sqlfluff.with({
+				extra_args = { "--dialect", "postgres" }, -- change to your dialect
+			}),
 		}
 
 		null_ls.setup({

@@ -25,6 +25,7 @@ return {
 			"dockerls",
 			"tailwindcss",
 			"gopls",
+			"sqlls",
 		}
 
 		vim.diagnostic.config({ virtual_text = false })
